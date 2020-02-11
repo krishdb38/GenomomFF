@@ -39,9 +39,9 @@ Check for Precautions and Requirements
 For 1000 sets of data it took around 4 minute in our system 
 when training run successfully check parameter csv file inside training Folder
 
-# `Training the Data`
+# `Testing the Data`
 ### Step 4: Check the bininfo files, format and location inside testing Folder
-#####  Run training Code `python GenomomFF_testing.py`
+#####  Run testing Code `python GenomomFF_testing.py`
 
 `` You can See Correlation output and also Correlation csv file saved inside training folder with correlation value at last ``
 ` All kinds of suggestions and comments are heartly welcome ` 
