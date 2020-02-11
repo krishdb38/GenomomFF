@@ -1,8 +1,7 @@
 # Background
 
-
-
-
+The accurate measure of a fetal fraction is important to assure the results of noninvasive prenatal testing. However, a huge amount of data, as well as additional costs, could occur by measuring fetal fraction. This study proposes an alternative method of measuring fetal fraction when it is a relatively limited sample size. The adaptive machine learning algorithms customised to each laboratory’s environment were used to measure fetal fraction. The pregnant women with female fetuses were tested to exclude the bias caused by training data of the women carrying male fetuses. The accuracy of fetal DNA fraction prediction was enhanced by increasing training sample size. When trained with 1,000 samples (males) and tested with 45 samples (females), the optimal bin sizes using the read count and read size features were 300 kb and 800 kb, respectively. When comparing the new 300 kb bin to the 50 kb bin used by SeqFF at 4,000–5,000 training samples, the correlation is approximately 3-5% higher in the 300 kb bin. We proposed an effective and customized method of measuring fetal fraction available to individual laboratories with limited sample collecting conditions. <br>
+`for more search our paper`
 
 # ```Precautions and Requirement ```
 ## `Python >3` with Pandas & Numpy library installed  and `R` with glmnet installed
@@ -18,9 +17,32 @@ GC1601C0378_20160126-300332_IonXpress_020.Fastq.sam.bam.sort.bam.rmdup.bam.sam.s
 ## GC CSV and Read Length SRL file must be CSV format and CSV header as like <br>
 
 "BIN","CHR","END","COUNT","GC" <br>
-chr1_0,chr1,300000,583,0.430783082518
-chr1_1,chr1,600000,474,0.444418530072
+chr1_0,chr1,300000,583,0.430783082518<br>
+chr1_1,chr1,600000,474,0.444418530072<br>
 
-`"BIN","CHR","END","RRL"
-chr1_0,chr1,800000,0.255024255024
-chr1_1,chr1,1600000,0.262870514821`
+"BIN","CHR","END","RRL"<br>
+chr1_0,chr1,800000,0.255024255024<br>
+chr1_1,chr1,1600000,0.262870514821 <br>
+
+# Training the Model
+### Step 1:
+keep all sam File inside sam Folder `TheragenGenomecare/sam/`
+Run python code `python bam_rl_read.py` Converting sam file to Read GC (csv) and SRL  Format take long time
+``` So Focus mainly after this step ```
+
+### Step 2:
+Check for Precautions and Requirements
+
+### Step 3 : Run Training Code 
+`python GenomomFF_training.py` in same location where GenomomFF_training.py
+###### This may take few minute according to your data size <br>
+For 1000 sets of data it took around 4 minute in our system 
+when training run successfully check parameter csv file inside training Folder
+
+# `Training the Data`
+### Step 4: Check the bininfo files, format and location inside testing Folder
+#####  Run training Code `python GenomomFF_testing.py`
+
+`` You can See Correlation output and also Correlation csv file saved inside training folder with correlation value at last ``
+` All kinds of suggestions and comments are heartly welcome ` 
+
